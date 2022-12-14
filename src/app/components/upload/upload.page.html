@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">My Files</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Search"></ion-searchbar>
+    
+  </ion-toolbar>
+  
+</ion-header>
+
+ <ion-content class="ion-padding">
+  <ion-progress-bar *ngIf="fileStatus.percent" [value]="fileStatus.percent"></ion-progress-bar>
+
+  <ion-segment value="default">
+    <ion-segment-button value="default">
+      <ion-label>Video</ion-label>
+      
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Image</ion-label>
+      
+    </ion-segment-button>
+  </ion-segment> 
+  <div class="panel-body">
+    <h2>Files</h2>
+    
+    <div class="content">
+      <div class="assets">
+        <div class="asset" *ngFor="let media of data">
+          <ng-container *ngIf="media.type.split('/')[0] == 'video'">
+            <video
+              class="card_video"
+              controls
+              #video1
+              
+              *ngIf="media.type.split('/')[0] == 'video'"
+            >
+              <source [src]="media.url" />
+              <p style="background-color: black; width: 50%">
+              </p>
+            </video>
+          </ng-container>
+          <ng-container *ngIf="media.type.split('/')[0] == 'image'">
+            <img
+              class="card_video"
+               [src]="media.url"
+              *ngIf="media.type.split('/')[0] == 'image'"
+            >
+              
+              
+          </ng-container>
+
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+       <div style="display: none;" *ngIf="fileStatus.status === 'progress'">
+
+      <div class="progress">
+        <div
+          [style.width.%]="fileStatus.percent"
+          class="skill-bar"
+          role="progressbar"
+          aria-valuenow="50"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div *ngIf="fileStatus.percent == 100">
+            <div class="skill-bar-red" [style.width.%]=""></div>
+          </div>
+        </div>
+        <div></div>
+        <br />
+        {{ fileStatus.requestType }} {{ fileStatus.percent }}
+      </div>
+    </div>
+  </div>
+<input multiple type="file" class="file-input"
+(change)="onFileSelected($event)" #fileUpload>
+    
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon (click)="fileUpload.click()" name="cloud-upload-outline"></ion-icon> </ion-fab-button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,53 @@
+
+
+<ion-content>
+  <div id="header">
+    <h1>Create your <br> Account</h1>
+ </div>
+    
+ <form [formGroup]="signupForm"  id="form" (ngSubmit)="SignupUser(signupForm.value)">
+  <ion-item class="ion-margin-bottom">
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-input formControlName="name"   style="margin-left: 10px;" placeholder="Full Name"></ion-input>
+    
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-icon name="mail-outline"></ion-icon>
+    <ion-input formControlName="email" name="email"  style="margin-left: 10px;" type="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email"></ion-input>
+    
+  </ion-item>
+  
+  <ion-item class="ion-margin-bottom">
+    <ion-icon name="call-outline"></ion-icon>
+    <ion-input  formControlName="numero"  style="margin-left: 10px;" type="number" placeholder="Phone number"></ion-input>
+    
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-icon name="lock-closed-outline"></ion-icon>
+    <ion-input formControlName="password"  style="margin-left: 10px;" type="password" placeholder="Password"></ion-input>
+    
+  </ion-item>
+  
+    
+  <ion-button  expand="block" type="submit" [disabled]="!signupForm.valid"  shape="round">
+    Join Us
+  </ion-button>
+
+
+ </form>
+ <p>By pressing 'Join Us' you agree to <br>our terms & conditions.</p>
+
+
+ <div class="footer" style="display: flex;justify-content: center">
+  <p>Already have account ?</p>
+  <p routerLink="/login">
+    <b>Login</b>  
+  </p>
+
+
+
+</div>
+  
+  
+
+</ion-content>

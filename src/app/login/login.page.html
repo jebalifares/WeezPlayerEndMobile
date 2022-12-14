@@ -1,0 +1,45 @@
+
+
+
+<ion-content>
+  <div id="header">
+    <h1>Login</h1>
+ </div>
+
+ <form  id="form" [formGroup]="loginForm" (ngSubmit)="authenticate(loginForm.value)">
+  <ion-item class="ion-margin-bottom">
+    <ion-icon name="mail-outline"></ion-icon>
+    <ion-input  formControlName="email" style="margin-left: 10px;" type="Email" placeholder="Email"></ion-input>
+    
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+      <ion-icon name="lock-closed-outline" ></ion-icon>
+      <ion-input formControlName="password"   style="margin-left: 10px;" type="password" placeholder="Password"></ion-input>
+      
+      </ion-item>
+    
+  <ion-button type="submit"  expand="block"  shape="round">
+    Login
+  </ion-button>
+  <p>Forgot password?</p>
+
+
+ </form>
+
+<div class="footer" style="display: flex;justify-content: center">
+  <p>Don't have account ?</p>
+  <p routerLink="/signup">
+    <b>Sign up</b>  
+  </p>
+
+
+
+</div>
+</ion-content>
+  
+
+
+  
+  
+  
+

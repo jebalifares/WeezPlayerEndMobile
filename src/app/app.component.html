@@ -1,3 +1,37 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" contentId="main">
+    <ion-content>
+      <div class="menu-header-bg">
+
+      </div>
+      <div class="header-content">
+        <img src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png">
+
+
+      </div>
+      <ion-list class="menu-items" lines="none">
+        <ion-item class="active">
+          <ion-icon name="pie-chart-outline"></ion-icon> Dashboard
+
+        </ion-item>
+        <ion-item>
+          <ion-icon name="chatbubble-ellipses-outline"></ion-icon> Messages
+
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon> Profile
+
+        </ion-item>
+        <ion-item>
+          <ion-icon name="exit-outline"></ion-icon> Sign out
+
+        </ion-item>
+
+
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
